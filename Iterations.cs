@@ -26,7 +26,8 @@ namespace DotnetIteration
         //
         public static IEnumerable<string> Yelling(List<string> words)
         {
-            throw new System.NotImplementedException();
+            var newWords = words.Select(word => word.ToUpper());
+            return newWords;
         }
 
 
@@ -37,7 +38,8 @@ namespace DotnetIteration
         // 
         public static IEnumerable<int> Double(List<int> numbers)
         {
-            throw new System.NotImplementedException();
+            var doubledList = numbers.Select(number => number * 2);
+            return doubledList;
         }
 
 
@@ -49,7 +51,8 @@ namespace DotnetIteration
         // 
         public static IEnumerable<string> StringyIndexes(List<string> data)
         {
-            throw new System.NotImplementedException();
+            var newList = data.Select((stringy, index) => $"{stringy} is at index {index}");
+            return newList;
         }
 
 
@@ -59,7 +62,7 @@ namespace DotnetIteration
         // 
         public static IEnumerable<int> OnlyTheEvenSurvive(List<int> data)
         {
-            throw new System.NotImplementedException();
+            return data.Where(num => num % 2 == 0);
         }
 
 
@@ -70,7 +73,7 @@ namespace DotnetIteration
         // 
         public static IEnumerable<int> OnlyTheEvenIndexedSurvive(List<int> data)
         {
-            throw new System.NotImplementedException();
+            return data.Where((element, index) => index % 2 == 0);
         }
 
 
@@ -89,7 +92,9 @@ namespace DotnetIteration
         // 
         public static IEnumerable<string> BestMovieOfTheYear(List<Movie> data, int year)
         {
-            throw new System.NotImplementedException();
+            var bestMovie = data.Where(movie => movie.Year == year && movie.Score >= 90);
+            var namesOfBestMovies = bestMovie.Select(movie => movie.Name);
+            return namesOfBestMovies;
         }
 
 
@@ -110,10 +115,11 @@ namespace DotnetIteration
         // 
         public static string FindTheNeedle(List<string> data)
         {
-            throw new System.NotImplementedException();
+            var word = data.First(element => element.Contains("needle"));
+            return word;
+
+
         }
-
-
         // 
         // 9) Complete the method FindTheNeedleIndex that accepts an list of
         //    strings and returns the index of the string that contains
@@ -121,7 +127,8 @@ namespace DotnetIteration
         // 
         public static int FindTheNeedleIndex(List<string> data)
         {
-            throw new System.NotImplementedException();
+            var needleIndex = data.FindIndex(element => element.Contains("needle"));
+            return needleIndex;
         }
 
 
@@ -129,10 +136,10 @@ namespace DotnetIteration
         // 10) Complete the method SomeoneToLove that accepts an list of
         //     strings and returns true if at least one string is exactly
         //     four characters long.
-        // 
         public static bool SomeoneToLove(List<string> data)
         {
-            throw new System.NotImplementedException();
+            var chosenWord = data.Any(element => element.Count() == 4);
+            return chosenWord;
         }
     }
 }
